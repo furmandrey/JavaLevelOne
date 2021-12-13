@@ -7,23 +7,23 @@
 public class HomeWork2 {
     public static void main(String[]args) {
         checkSum(10, 5);
-        System.out.println(printSing(0));
+        printSing(0);
         checkSing(0);
-        printRow(6, "Hello");
+        printRow(6, "Hello!");
         findYear(2020);
 
     }
 
     static boolean checkSum(int a, int b) {
-        return (a + b >= 10 && a + b <= 20 ? true : false);
+        return a + b >= 10 && a + b <= 20;
     }
 
-    static String printSing(int a) {
-        return (a >= 0 ? "positive" : "negative");
+    static void printSing(int a) {
+        System.out.println(a >= 0 ? "positive" : "negative");
     }
 
     static boolean checkSing(int a) {
-        return (a < 0 ? true : false);
+        return a < 0;
     }
 
     static void printRow(int a, String row) {
@@ -33,6 +33,6 @@ public class HomeWork2 {
 
     }
     public static boolean findYear(int year) {
-        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ? true : false;
+        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
     }
 }
