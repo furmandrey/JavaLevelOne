@@ -45,7 +45,7 @@ public class ForTest {
                 System.out.println("It is DRAW Bro");
                 break;
             }
-            turnComputer();
+            turnComputer(CHAR_O, CHAR_X);
             printField();
             if (isWin(CHAR_O)) {
                 System.out.println();
@@ -79,8 +79,7 @@ public class ForTest {
     }
 
     void turnPlayer() {
-        int x,
-        y;
+        int x, y;
         do {
             System.out.println("Please enter X →. The numbers from 1 to 3:   ");
             x = sc.nextInt() - 1;
@@ -90,31 +89,43 @@ public class ForTest {
         field[y][x] = CHAR_X;
     }
 
-    void turnComputer() {
-        int x, y;
+    void turnComputer(char ch, char enemyDot) {
+        int x,
+        y;
+        for ( y = 0; y < field.length; y++) {
+            for ( x = 0; x < field.length; x++) {
+                if (isCellValidC(x, y)) {
+                    field[y][x] = enemyDot;
+                    if (isWin(enemyDot)) {
+                        field[y][x] = ch;
+                        return;
+                    }
+                    field[y][x] = CHAR_VOID;
+                }
+            }
+        }
         do {
             x = random.nextInt(3);
             y = random.nextInt(3);
         } while (!isCellValidC(x, y));
-        field[y][x] = CHAR_O;
+        field[y][x] = ch;
     }
 
-    
     boolean isCellValid(int x, int y) {
         if (x < 0 || y < 0 || x > 2 || y > 2) {
             System.out.println("Wrong cell! ");
             return false;
         }
         if (field[y][x] == CHAR_X || field[y][x] == CHAR_O) {
-          System.out.println("Cell occupied! ");
-         return false;
+            System.out.println("Cell occupied! ");
+            return false;
         }
 
         return field[y][x] == CHAR_VOID;
     }
 
-     boolean isCellValidC(int x, int y) {
-             return field[y][x] == CHAR_VOID;
+    boolean isCellValidC(int x, int y) {
+        return field[y][x] == CHAR_VOID;
     }
 
     boolean isWin(char ch) {
@@ -135,7 +146,7 @@ public class ForTest {
                     if (checkYline == 3)
                         return true;
                 }
-               
+
             }
             if (field[y][y] == ch) {
                 checkBackslashline++;
@@ -176,6 +187,7 @@ public class ForTest {
 
 }
 
+
 //**********************************************************************
 // <<<<<<< HEAD
 // import java.util.*;
@@ -192,12 +204,11 @@ public class ForTest {
 //  //public static Scanner sc = new Scanner(System.in);
 
 //     public static void main(String[] args) {
-      
+
 //      int[] arr = createRandomeArray(10);
 //       printArray(arr);
-  
-      
-      
+
+
 //       //printArray(arr);  // Массив передается как параметр метода, переданный параметр является адресом памяти массива
 //       //diagonally();
 //     }
@@ -209,7 +220,7 @@ public class ForTest {
 //            System.out.print(arr[i] + " ");
 //        }
 //        //System.out.println();
-//     }    
+//     }
 
 //         // int d = getNumberFromScanner("Введите число в пределах от 5 до 10", 5, 10);
 //         // System.out.println("d = " + d);
@@ -231,7 +242,7 @@ public class ForTest {
 // //         // createArray(12, 1);
 // //         // findMinMax(createRandomeArray);
 // //         createRandomeArray(10);
-       
+
 // //         // //   int counter = 1;
 // //         //   int[][] table = new int[4][4];
 // //         //   for (int i = 0; i < 4; i++) {
@@ -246,12 +257,11 @@ public class ForTest {
 // //     }
 // //     public static void printArr(int[] arr) {
 // //     for (int i = 0; i < arr.length; i++) {
-         
+
 // //             System.out.print(arr[i]);
 // //         }
 // //         System.out.println();
 // //     }
-
 
 
 // //     //  static int getNumberFromScanner(String message, int min, int max) {
@@ -286,9 +296,9 @@ public class ForTest {
 //         Random random = new Random();
 //             for (int i = 0; i < array.length; i++) {
 // <<<<<<< HEAD
-//             array[i] = random.nextInt(1000);   
+//             array[i] = random.nextInt(1000);
 // =======
-//             array[i] = random.nextInt(100);   
+//             array[i] = random.nextInt(100);
 // >>>>>>> 5eee55bd5a96abc980624633b7a6bf5b7a0013d3
 //         }
 //         //System.out.println(Arrays.toString(array));
@@ -475,4 +485,3 @@ public class ForTest {
  *@version 18.12.2021
  */
 //Крестики - Нолики
-

@@ -2,7 +2,7 @@
  * Java 1. HomeWork #4
  *
  *@author Andrei Furman
- *@version 20.12.2021
+ *@version 21.12.2021
  */
 //Крестики - Нолики
 
@@ -45,7 +45,7 @@ public class HomeWork4 {
                 System.out.println("It is DRAW Bro");
                 break;
             }
-            turnComputer();
+            turnComputer(CHAR_O, CHAR_X);
             printField();
             if (isWin(CHAR_O)) {
                 System.out.println();
@@ -79,7 +79,8 @@ public class HomeWork4 {
     }
 
     void turnPlayer() {
-        int x, y;
+        int x,
+        y;
         do {
             System.out.println("Please enter X →. The numbers from 1 to 3:   ");
             x = sc.nextInt() - 1;
@@ -89,13 +90,26 @@ public class HomeWork4 {
         field[y][x] = CHAR_X;
     }
 
-    void turnComputer() {
-        int x,y;
+    void turnComputer(char ch, char enemyDot) {
+        int x,
+        y;
+        for (y = 0; y < field.length; y++) {
+            for (x = 0; x < field.length; x++) {
+                if (isCellValidC(x, y)) {
+                    field[y][x] = enemyDot;
+                    if (isWin(enemyDot)) {
+                        field[y][x] = ch;
+                        return;
+                    }
+                    field[y][x] = CHAR_VOID;
+                }
+            }
+        }
         do {
             x = random.nextInt(3);
             y = random.nextInt(3);
         } while (!isCellValidC(x, y));
-        field[y][x] = CHAR_O;
+        field[y][x] = ch;
     }
 
     boolean isCellValid(int x, int y) {
