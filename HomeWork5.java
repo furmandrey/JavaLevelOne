@@ -20,7 +20,9 @@ public class HomeWork5 {
         employeeArray[2] = new Employee("Dwayne Buttler","manager", "Dwayne@gmail.com", "+7(918)5553344", 10000, 39);
         employeeArray[3] = new Employee("Clifton Walsh","manager", "Clifton@gmail.com", "+7(916)2221100", 10000, 41);
         employeeArray[4] = new Employee("Anthony Good","manager", "Anthony@gmail.com", "+7(916)2226677", 10000, 45);
+
         employeeArray[4].setSalary(11000);
+
             for (int i = 0; i < employeeArray.length; i++) {
                  if (employeeArray[i].getAge() > 40) System.out.println(employeeArray[i].display());
                  //if (employeeArray[i].getAge() > 40) employeeArray[i].show();
@@ -54,6 +56,7 @@ class Employee {
       }
     }
 
+
     String display() {
         return fullName + ", " + position + ", " + email + ", " + phoneNumber + ", " + salary + ", " + age;
     }
@@ -61,6 +64,10 @@ class Employee {
     // public void show() {
     //     System.out.println(fullName + ", " + position + ", " + email + ", " + phoneNumber + ", " + salary + ", " + age);
     // }
+
+    public void show() {
+        System.out.println(fullName + ", " + position + ", " + email + ", " + phoneNumber + ", " + salary + ", " + age);
+    }
 
     public String toString() {
         return fullName + ", " + position + ", " + email + ", " + phoneNumber + ", " + salary + ", " + age;
