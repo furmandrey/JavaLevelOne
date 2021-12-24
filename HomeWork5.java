@@ -60,14 +60,10 @@ class Employee {
     String display() {
         return fullName + ", " + position + ", " + email + ", " + phoneNumber + ", " + salary + ", " + age;
     }
-
+    
     // public void show() {
     //     System.out.println(fullName + ", " + position + ", " + email + ", " + phoneNumber + ", " + salary + ", " + age);
     // }
-
-    public void show() {
-        System.out.println(fullName + ", " + position + ", " + email + ", " + phoneNumber + ", " + salary + ", " + age);
-    }
 
     public String toString() {
         return fullName + ", " + position + ", " + email + ", " + phoneNumber + ", " + salary + ", " + age;
