@@ -2,7 +2,7 @@
  * Java 1. HomeWork #6
  *
  *@author Andrei Furman
- *@version 24.12.2021
+ *@version 27.12.2021
  */
 //ООП++
 
@@ -10,73 +10,77 @@ import java.util. * ;
 
 public class HomeWork6 {
     public static void main(String[]args) {
-        Cat cat = new Cat("Tom", 150, 0);
-        Dog dog = new Dog("Droopy", 100, 2);
-
-        if (dog.conditions() == true) {
-            System.out.println(dog);
-        } else {
-            System.out.println("invalid value fo dog " + dog.name);
-        }
-
-        if (cat.conditions() == true) {
-            System.out.println(cat);
-
-        } else {
-            System.out.println("invalid value fo cat " + cat.name);
-        }
-
+       Cat cat = new Cat("Tom");
+       Dog dog = new Dog("Droopy");
+        cat.run(200);
+        cat.swim(1);
+        cat.run(300);
+       dog.swim(11);
+       dog.swim(10);
+       dog.swim(9);
+       dog.run(501);
+       dog.run(500);
+       dog.run(499);
     }
+}
+interface RunSwim {
+    void run(int runLgth);
+    void swim(int swimLgth);
+
+}
+// interface Swim {
+//     void swim(int runLgth);
+// }
+
+abstract class Animal implements RunSwim {
+    protected String name;
+        Animal(String name) {
+         this.name = name;
+        }
 }
 
 class Cat extends Animal {
-    Cat(String name, int run, int swim) {
-        super(name, run, swim);
+    Cat(String name) {
+        super(name);
     }
 
-    boolean conditions() {
-        return run < 200 && swim == 0;
+    @Override //cat run
+    public void run(int runLgth) {
+        if (runLgth <= 200) {
+            System.out.println(name + " has run " + runLgth + " m.");
+        } else {
+            System.out.println(" Sorry, " + name + " can't run so long");
+        }
     }
 
-     @ Override
-    public String toString() {
-        return name + " has run " + run + "m";
-
+    @Override //cat swim
+    public void swim(int swimLgth) {
+        
+            System.out.println("Sorry, " + name + " can't swim at all :-( ");
+        
     }
 }
 
 class Dog extends Animal {
-    Dog(String name, int run, int swim) {
-        super(name, run, swim);
+    Dog(String name) {
+        super(name);
     }
 
-    boolean conditions() {
-        return run < 500 && swim < 10;
-    }
-}
-
-class Animal {
-    protected String name;
-    protected int run;
-    protected int swim;
-
-    Animal(String name, int run, int swim) {
-        this.name = name;
-        this.run = run;
-        this.swim = swim;
+    @Override
+    public void run(int runLgth) {
+        if (runLgth <= 500) {
+            System.out.println(name + " has run " + runLgth + " m.");
+        } else {
+            System.out.println(" Sorry, " + name + " can't run so long");
+        }
     }
 
-    String run() {
-        return name + " has run " + run + "m";
-    }
-
-    String swim() {
-        return " has swum " + swim + "m";
-    }
-
-     @ Override
-    public String toString() {
-        return name + " has run " + run + "m" + " and " + "has swum " + swim + "m";
-
+    @Override
+    public void swim(int swimLgth) {
+        if (swimLgth <= 10) {
+            System.out.println(name + " has swum " + swimLgth + " m.");
+        } else {
+            System.out.println(" Sorry, " + name + "can't swim so long");
+        }
     }
 }
