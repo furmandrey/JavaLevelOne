@@ -486,124 +486,124 @@
 //  */
 // //Крестики - Нолики
 //**********
-import java.util.List;
-import java.util.Random;
+// import java.util.List;
+// import java.util.Random;
 
-interface Run {
-    void run(int length);
-}
-interface Swim {
-    void swim(int length);
-}
-interface Jump {
-    void jump(int height);
-}
+// interface Run {
+//     void run(int length);
+// }
+// interface Swim {
+//     void swim(int length);
+// }
+// interface Jump {
+//     void jump(int height);
+// }
 
-public abstract class Animal implements Run, Jump, Swim {
-    protected int runLimit, swimLimit, jumpLimit;
-}
-
-
-
-public class Cat extends Animal {
-
-    private Random rnd = new Random();
-    private static String defaultName = "cat";
-    private static int increment = 0;
-
-    @Override
-    public String toString() {
-        return defaultName;
-    }
-
-    public Cat() {
-        increment++;
-        defaultName += increment;
-        swimLimit = 0;
-        runLimit = 100 + rnd.nextInt(200);
-        jumpLimit = 1 + rnd.nextInt(3);
-    }
-
-    @Override
-    public void run(int length) {
-        if (length <= runLimit) {
-            System.out.println(this + " run " + length + " m.");
-        } else {
-            System.out.println(this + " cannot run so long");
-        }
-    }
-
-    @Override
-    public void swim(int length) {
-        System.out.println(this + " are not able to swim");
-    }
-
-    @Override
-    public void jump(int height) {
-        if (height <= jumpLimit) {
-            System.out.println(this + " jump to " + height + " m.");
-        } else {
-            System.out.println(this + " cannot jump so high");
-        }
-    }
-}
+// public abstract class Animal implements Run, Jump, Swim {
+//     protected int runLimit, swimLimit, jumpLimit;
+// }
 
 
 
-public class Dog extends Animal{
-    private Random rnd = new Random();
-    private static String defaultName = "dog";
-    private static int increment = 0;
+// public class Cat extends Animal {
 
-    @Override
-    public String toString() {
-        return defaultName;
-    }
+//     private Random rnd = new Random();
+//     private static String defaultName = "cat";
+//     private static int increment = 0;
 
-    public Dog() {
-        increment++;
-        defaultName += increment;
-        swimLimit = 0;
-        runLimit = 300 + rnd.nextInt(200);
-        jumpLimit = 1 + rnd.nextInt(3);
-    }
+//     @Override
+//     public String toString() {
+//         return defaultName;
+//     }
 
-    @Override
-    public void run(int length) {
-        if (length <= runLimit) {
-            System.out.println(this + " run " + length + " m.");
-        } else {
-            System.out.println(this + " cannot run so long");
-        }
-    }
+//     public Cat() {
+//         increment++;
+//         defaultName += increment;
+//         swimLimit = 0;
+//         runLimit = 100 + rnd.nextInt(200);
+//         jumpLimit = 1 + rnd.nextInt(3);
+//     }
 
-    @Override
-    public void swim(int length) {
-        if (length <= runLimit) {
-            System.out.println(this + " swim " + length + " m.");
-        } else {
-            System.out.println(this + " cannot swim so long");
-        }
-    }
+//     @Override
+//     public void run(int length) {
+//         if (length <= runLimit) {
+//             System.out.println(this + " run " + length + " m.");
+//         } else {
+//             System.out.println(this + " cannot run so long");
+//         }
+//     }
 
-    @Override
-    public void jump(int height) {
-        if (height <= jumpLimit) {
-            System.out.println(this + " jump to " + height + " m.");
-        } else {
-            System.out.println(this + " cannot jump so high");
-        }
-    }
-}
+//     @Override
+//     public void swim(int length) {
+//         System.out.println(this + " are not able to swim");
+//     }
+
+//     @Override
+//     public void jump(int height) {
+//         if (height <= jumpLimit) {
+//             System.out.println(this + " jump to " + height + " m.");
+//         } else {
+//             System.out.println(this + " cannot jump so high");
+//         }
+//     }
+// }
 
 
-public class ForTest {
-    public static void main(String[] args) {
-        Cat cat = new Cat();
-        Dog dog = new Dog();
-        cat.jump(1);
-        cat.jump(100);
-        cat.run(100);
-        dog.swim(50);
-    }
-}
+
+// public class Dog extends Animal{
+//     private Random rnd = new Random();
+//     private static String defaultName = "dog";
+//     private static int increment = 0;
+
+//     @Override
+//     public String toString() {
+//         return defaultName;
+//     }
+
+//     public Dog() {
+//         increment++;
+//         defaultName += increment;
+//         swimLimit = 0;
+//         runLimit = 300 + rnd.nextInt(200);
+//         jumpLimit = 1 + rnd.nextInt(3);
+//     }
+
+//     @Override
+//     public void run(int length) {
+//         if (length <= runLimit) {
+//             System.out.println(this + " run " + length + " m.");
+//         } else {
+//             System.out.println(this + " cannot run so long");
+//         }
+//     }
+
+//     @Override
+//     public void swim(int length) {
+//         if (length <= runLimit) {
+//             System.out.println(this + " swim " + length + " m.");
+//         } else {
+//             System.out.println(this + " cannot swim so long");
+//         }
+//     }
+
+//     @Override
+//     public void jump(int height) {
+//         if (height <= jumpLimit) {
+//             System.out.println(this + " jump to " + height + " m.");
+//         } else {
+//             System.out.println(this + " cannot jump so high");
+//         }
+//     }
+// }
+
+
+// public class ForTest {
+//     public static void main(String[] args) {
+//         Cat cat = new Cat();
+//         Dog dog = new Dog();
+//         cat.jump(1);
+//         cat.jump(100);
+//         cat.run(100);
+//         dog.swim(50);
+//     }
+// }
