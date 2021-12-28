@@ -1,6 +1,14 @@
+/**
+ * Java 1. HomeWork #7
+ *
+ *@author Andrei Furman
+ *@version 29.12.2021
+ */
+//ООП+strings
+
 import java.util. * ;
 
-public class ForTest {
+public class HomeWork7 {
     public static void main(String[]args) {
         Scanner sc = new Scanner(System.in);
         int food = 0;
@@ -37,37 +45,31 @@ class Cat {
     private String name;
     private int appetite;
     private boolean fullness;
-    private String h;
+    private String hungryOreNot;
 
-    Cat(String name, int appetite, String h) {
+    Cat(String name, int appetite, String hungryOreNot) {
         this.name = name;
         this.appetite = appetite;
         this.fullness = false;
-        this.h = h;
+        this.hungryOreNot = hungryOreNot;
     }
 
     void eat(Plate plate) {
         if (plate.decreaseFood(appetite)) {
             fullness = true;
-            this.h = "is full";
+            this.hungryOreNot = "is full";
         }
     }
 
     public String getH() {
-        return h;
+        return hungryOreNot;
     }
      @ Override
     public String toString() {
-        //  String h = "is hungry";
-        //  if (fullness) h = "is full";
-        return "Cat: " + name + " , has an appetite: " + appetite + " " + h;
+        return "Cat: " + name + " , has an appetite: " + appetite + " " + hungryOreNot;
     }
 
-    //  public void setFullness(String h) {
-    //       if () {
-    //           this.fullness = "full";
-    //       }
-    //   }
+  
 }
 
 class Plate {
@@ -95,3 +97,4 @@ class Plate {
         return "Left on the plate: " + food;
     }
 }
+

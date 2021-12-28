@@ -10,17 +10,17 @@ import java.util. * ;
 
 public class HomeWork6 {
     public static void main(String[]args) {
-       Cat cat = new Cat("Tom");
-       Dog dog = new Dog("Droopy");
+        Cat cat = new Cat("Tom", 200);
+        Dog dog = new Dog("Droopy", 500, 10);
         cat.run(200);
         cat.swim(1);
         cat.run(300);
-       dog.swim(11);
-       dog.swim(10);
-       dog.swim(9);
-       dog.run(501);
-       dog.run(500);
-       dog.run(499);
+        dog.swim(11);
+        dog.swim(10);
+        dog.swim(9);
+        dog.run(501);
+        dog.run(500);
+        dog.run(499);
     }
 }
 interface RunSwim {
@@ -28,56 +28,59 @@ interface RunSwim {
     void swim(int swimLgth);
 
 }
-// interface Swim {
-//     void swim(int runLgth);
-// }
 
 abstract class Animal implements RunSwim {
     protected String name;
-        Animal(String name) {
-         this.name = name;
-        }
+    protected int maxRunLghth;
+
+    Animal(String name, int maxRunLghth) {
+        this.name = name;
+        this.maxRunLghth = maxRunLghth;
+    }
 }
 
 class Cat extends Animal {
-    Cat(String name) {
-        super(name);
+    Cat(String name, int maxRunLghth) {
+        super(name, maxRunLghth);
     }
 
-    @Override //cat run
+     @ Override //cat run
     public void run(int runLgth) {
-        if (runLgth <= 200) {
+        if (runLgth <= maxRunLghth) {
             System.out.println(name + " has run " + runLgth + " m.");
         } else {
             System.out.println(" Sorry, " + name + " can't run so long");
         }
     }
 
-    @Override //cat swim
+     @ Override //cat swim
     public void swim(int swimLgth) {
-        
-            System.out.println("Sorry, " + name + " can't swim at all :-( ");
-        
+
+        System.out.println("Sorry, " + name + " can't swim at all :-( ");
+
     }
 }
 
 class Dog extends Animal {
-    Dog(String name) {
-        super(name);
+    protected int maxSwimLghth;
+
+    Dog(String name, int maxRunLghth, int maxSwimLghth) {
+        super(name, maxRunLghth);
+        this.maxSwimLghth = maxSwimLghth;
     }
 
-    @Override
+     @ Override
     public void run(int runLgth) {
-        if (runLgth <= 500) {
+        if (runLgth <= maxRunLghth) {
             System.out.println(name + " has run " + runLgth + " m.");
         } else {
             System.out.println(" Sorry, " + name + " can't run so long");
         }
     }
 
-    @Override
+     @ Override
     public void swim(int swimLgth) {
-        if (swimLgth <= 10) {
+        if (swimLgth <= maxSwimLghth) {
             System.out.println(name + " has swum " + swimLgth + " m.");
         } else {
             System.out.println(" Sorry, " + name + "can't swim so long");
