@@ -64,7 +64,7 @@ class Cat {
     public String getH() {
         return hungryOreNot;
     }
-     @ Override
+     @Override
     public String toString() {
         return "Cat: " + name + " , has an appetite: " + appetite + " " + hungryOreNot;
     }
@@ -92,7 +92,7 @@ class Plate {
         this.food += food;
     }
 
-     @ Override
+     @Override
     public String toString() {
         return "Left on the plate: " + food;
     }
